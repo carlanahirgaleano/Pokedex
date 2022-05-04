@@ -22,5 +22,6 @@ if($resultado->num_rows == 1){
 }else{
     header('location: login.html');
     echo 'Usuario y/o contraseña incorrectos';
+    $conexion.close();
 }
 

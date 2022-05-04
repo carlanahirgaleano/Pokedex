@@ -1,3 +1,6 @@
+<?php
+include_once('login.html');
+?>
 <html>
 <div>Bienvenido<div/>
     <form action='./BuscarPokemon.php' method='POST' enctype='text/plaine'>
