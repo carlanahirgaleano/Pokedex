@@ -7,41 +7,44 @@ class ConexionDatabase{
 
     public function __construct()
     {
-        $this->config = parse_ini_file("config.ini");
-        $configuracion =  $this->config;
-        $this->conexion = new mysqli($configuracion["host"], $configuracion["usuario"], $configuracion["clave"], $configuracion["base"]);
-
+        $this->config = parse_ini_file("config/config.ini");
+        $config =  $this->config;
+        $this->conexion = new mysqli($config["host"], $config["usuario"], $config["clave"], $config["base"]);
     }
 
-
-
-
-    public function ejecutaQuery($sql)
+    private function ejecutaQuery($sql)
     {
         $comando = $this->conexion->prepare($sql);
         $comando->execute();
-        $resultado = $comando->get_result();
-        return $resultado;
+        return $comando->get_result();
     }
 
     public function devolverTodosLosPokemones()
     {
-        $sql = "SELECT identificador, nombre, tipoImagen, imagen FROM Pokemon";
-        $resultado = $this->ejecutaQuery($sql);
-        return $resultado;
+        $sql = "SELECT identificador, nombre, tipoimagen, imagen FROM Pokemon";
+        return $this->ejecutaQuery($sql);
     }
 
     public function buscarUnPokemon($input)
     {
-        $sql = "SELECT * FROM Pokemon WHERE nombre = ? OR  tipo= ? OR identificador = ?";
-
+        $sql = "SELECT * FROM Pokemon WHERE nombre = ? OR tipo= ? OR identificador = ?";
         $comando = $this->conexion->prepare($sql);
         $comando->bind_param("ssi", $input , $input , $input);
-
         $comando->execute();
+        return $comando->get_result();
+    }
 
-        $resultado = $comando->get_result();
-        return $resultado;
+    public function buscarUsuarioPassword($usuario,$password){
+        $sql = "SELECT * FROM credenciales WHERE email = ? AND password = ?";
+        $comando = $this->conexion->prepare($sql);
+        $password = md5($password);
+        $comando->bind_param("ss",$usuario,$password);
+        $comando->execute();
+        return $comando->get_result();
+    }
+
+    public function cerrarConexion(){
+        return $this->conexion->close();
     }
 
 
