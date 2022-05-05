@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedex</title>
+</head>
+<body>
+<header>
+    <form action="login.php" method="post">
+    <input type="text" name="usuario" value=""><br>
+    <input type="password" name="clave" value=""><br>
+    <input type="submit">
+    </form>
+
+    <h2>Bienvenido</h2>
+        <form action='BuscarPokemon.php' method='POST' enctype='text/plaine'>
+            <input type='text'
+                   id='pokemon'
+                   name='pokemon'
+                   placeholder='Ingrese nombre, tipo o número de pókemon'>
+            <button type="submit" name="enviar">Buscar</button>
+        </form>
+</header>
+</body>
+</html>

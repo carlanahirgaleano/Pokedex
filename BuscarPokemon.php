@@ -1,24 +1,28 @@
-<html>
 <?php
-include_once('header.php');
+include_once('html/header.html');
 include_once('ConexionDatabase.php');
-//BuscarUnPokemon
 
 $input = $_POST["pokemon"];
 
 $conexionDB = new ConexionDatabase();
 $resultado = $conexionDB->buscarUnPokemon($input);
 
-
 if($resultado->num_rows == 1){
-    include_once("TablaPokemon.php");
-
+    include_once("html/TablaGeneralPokemon.html");
+    foreach ($resultado as $pokemon){
+        echo   "<tr>
+                    <td>" . $pokemon['identificador'] . "</td>
+                    <td>" . $pokemon['nombre'] . "</td>
+                    <td><img width='100px' height='50px' src='".$pokemon['tipoImagen']."'></td>
+                    <td> <img width='50px' height='50px' src='".$pokemon['imagen']."'> </td>
+                </tr>";
+    }
+    $conexionDB->cerrarConexion();
 }else{
-    echo "<div>Pokemon no encontrado</div>";
+    $conexionDB->cerrarConexion();
     header('location:index.php');
-};?>
-        </table>
-    </div>
-</html>
+};
+echo "</table>";
+
 
 
