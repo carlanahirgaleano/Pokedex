@@ -4,6 +4,10 @@ include_once("html/TablaGeneralPokemon.html");
 
 $conexionDB = new ConexionDatabase();
 $resultado = $conexionDB->devolverTodosLosPokemones();
+
+if (isset($_POST['Baja'])) {
+    $conexionDB->eliminarPokemon(($_POST['Baja']));
+}
 foreach ($resultado as $pokemon) {
     $identificador = $pokemon['identificador'];
     $nombre = $pokemon['nombre'];
@@ -13,7 +17,17 @@ foreach ($resultado as $pokemon) {
                 <td><a href='DetallePokemon.php/?param=$nombre' > " . $nombre . "</a></td>
                 <td><img width='100px' height='50px' src='" . $pokemon['tipoimagen'] . "'></td>
                 <td> <img width='50px' height='50px' src='" . $pokemon['imagen'] . "'> </td>
-          </tr>";
-}
+                
+                <td>
+                <form method='post' >
+                <button type='submit' name='Baja' placeholder='Bajar Pokemon'
+                class='button' value='$identificador'>Dar Baja</button>
+                  
+          
+            </form>
+                
+                
+        </tr>";
+}          
 echo "</table>";
 $conexionDB->cerrarConexion();

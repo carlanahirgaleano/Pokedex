@@ -17,5 +17,6 @@ foreach ($resultado as $pokemon) {
     echo "<div>" .$pokemon['descripcion']."</div>";
 }
 $conexionDB->cerrarConexion();
+
 ?>
 </html>
