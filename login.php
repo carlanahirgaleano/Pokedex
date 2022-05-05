@@ -12,7 +12,7 @@ if($resultado->num_rows == 1){
 }else{
     $conexionDB->cerrarConexion();
     echo 'Usuario y/o contraseña incorrectos';
-    header('location: html/header.html');
+    header('location: index.php');
 
 }
 

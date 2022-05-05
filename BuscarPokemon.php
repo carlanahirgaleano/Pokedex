@@ -7,13 +7,13 @@ $input = $_POST["pokemon"];
 $conexionDB = new ConexionDatabase();
 $resultado = $conexionDB->buscarUnPokemon($input);
 
-if($resultado->num_rows == 1){
+if($resultado->num_rows >= 1){
     include_once("html/TablaGeneralPokemon.html");
     foreach ($resultado as $pokemon){
         echo   "<tr>
                     <td>" . $pokemon['identificador'] . "</td>
                     <td>" . $pokemon['nombre'] . "</td>
-                    <td><img width='100px' height='50px' src='".$pokemon['tipoImagen']."'></td>
+                    <td><img width='100px' height='50px' src='".$pokemon['tipoimagen']."'></td>
                     <td> <img width='50px' height='50px' src='".$pokemon['imagen']."'> </td>
                 </tr>";
     }

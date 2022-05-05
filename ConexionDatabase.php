@@ -21,7 +21,7 @@ class ConexionDatabase{
 
     public function devolverTodosLosPokemones()
     {
-        $sql = "SELECT identificador, nombre, tipoImagen, imagen FROM Pokemon";
+        $sql = "SELECT identificador, nombre, tipoimagen, imagen FROM Pokemon";
         return $this->ejecutaQuery($sql);
     }
 
