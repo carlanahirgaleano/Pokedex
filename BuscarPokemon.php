@@ -10,10 +10,12 @@ $resultado = $conexionDB->buscarUnPokemon($input);
 if($resultado->num_rows >= 1){
     include_once("html/TablaGeneralPokemon.html");
     foreach ($resultado as $pokemon){
+        $identificador = $pokemon['identificador'];
+        $nombre = $pokemon['nombre'];
         echo   "<tr>
-                    <td>" . $pokemon['identificador'] . "</td>
-                    <td>" . $pokemon['nombre'] . "</td>
-                    <td><img width='100px' height='50px' src='".$pokemon['tipoimagen']."'></td>
+                    <td><a href='DetallePokemon.php/?param=$identificador' > " . $identificador . "</a></td>
+                <td><a href='DetallePokemon.php/?param=$nombre' > " . $nombre . "</a></td>
+                    <td><img width='100px' height='50px' src='".$pokemon['tipoImagen']."'></td>
                     <td> <img width='50px' height='50px' src='".$pokemon['imagen']."'> </td>
                 </tr>";
     }
