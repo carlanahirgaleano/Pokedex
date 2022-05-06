@@ -7,6 +7,11 @@ $input = $_POST["pokemon"];
 $conexionDB = new ConexionDatabase();
 $resultado = $conexionDB->buscarUnPokemon($input);
 
+if (isset($_POST['Baja'])) {
+    $conexionDB->eliminarPokemon(($_POST['Baja']));
+    header('location:index.php');
+}
+
 if($resultado->num_rows >= 1){
     foreach ($resultado as $pokemon) {
         $identificador = $pokemon['identificador'];
