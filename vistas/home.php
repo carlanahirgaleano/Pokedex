@@ -9,10 +9,8 @@
     <?php
     session_start();
     if(isset($_SESSION['usuario'])){
-
-        echo"<p>Usuario Admin</p>
+        echo"<p>Usuario " . ($_SESSION['usuario']) ."</p>
              <a href='sesiones/logoutSesion.php'>Cerrar sesión</a>";
-
     }else {
         include_once('FormularioLogin.php');
     }

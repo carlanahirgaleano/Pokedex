@@ -7,8 +7,8 @@ if(isset($_SESSION['usuario'])){
                 <td><img width='100px' height='50px' src='" . $pokemon['tipoImagen'] . "'></td>
                 <td> <img width='50px' height='50px' src='" . $pokemon['imagen'] . "'> </td>
                 <form action='' method='POST' enctype='text/plaine'>
-                <td> <button type='submit' name='enviar'>Modificacion</button> </td>
-                <td> <button type='submit' name='enviar'>Baja</button> </td>
+                <td> <button type='submit' class='button' name='enviar'>Modificacion</button> </td>
+                <td> <button type='submit' class='button' name='Baja' value='$identificador'>Baja</button> </td>
                 </form>               
           </tr>";
 }else {

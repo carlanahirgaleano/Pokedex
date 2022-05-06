@@ -43,6 +43,15 @@ class ConexionDatabase{
         return $comando->get_result();
     }
 
+    public function eliminarPokemon($id){
+        $sql = "DELETE FROM Pokemon WHERE identificador = ? ";
+        $comando = $this->conexion->prepare($sql);
+        $comando -> bind_param("i",$id);
+        $comando->execute();
+        return $comando->get_result();
+
+    }
+
     public function cerrarConexion(){
         return $this->conexion->close();
     }
