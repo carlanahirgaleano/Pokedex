@@ -21,7 +21,7 @@ class ConexionDatabase{
 
     public function devolverTodosLosPokemones()
     {
-        $sql = "SELECT identificador, nombre, tipoimagen, imagen FROM Pokemon";
+        $sql = "SELECT identificador, nombre, tipoImagen, imagen FROM Pokemon";
         return $this->ejecutaQuery($sql);
     }
 
@@ -41,6 +41,15 @@ class ConexionDatabase{
         $comando->bind_param("ss",$usuario,$password);
         $comando->execute();
         return $comando->get_result();
+    }
+
+    public function eliminarPokemon($id){
+        $sql = "DELETE FROM Pokemon WHERE identificador = ? ";
+        $comando = $this->conexion->prepare($sql);
+        $comando -> bind_param("i",$id);
+        $comando->execute();
+        return $comando->get_result();
+
     }
 
     public function cerrarConexion(){
