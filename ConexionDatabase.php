@@ -21,7 +21,7 @@ class ConexionDatabase{
 
     public function devolverTodosLosPokemones()
     {
-        $sql = "SELECT identificador, nombre, tipoImagen, imagen FROM Pokemon ORDER BY identificador";
+        $sql = "SELECT id, identificador, nombre, tipoImagen, imagen FROM Pokemon ORDER BY identificador";
         return $this->ejecutaQuery($sql);
     }
 
@@ -42,6 +42,14 @@ class ConexionDatabase{
         $comando->execute();
         return $comando->get_result();
     }
+    public function buscarUnPokemonPorId($id)
+    {
+        $sql = "SELECT * FROM Pokemon WHERE id = ?  ";
+        $comando = $this->conexion->prepare($sql);
+        $comando->bind_param("i", $id );
+        $comando->execute();
+        return $comando->get_result();
+    }
 
     public function eliminarPokemon($id){
         $sql = "DELETE FROM Pokemon WHERE identificador = ? ";
@@ -50,6 +58,14 @@ class ConexionDatabase{
         $comando->execute();
         return $comando->get_result();
 
+    }
+    public function editarPokemon($identificador,$descripcion,$nombre,$tipo,$id){
+        $sql= "UPDATE Pokemon SET identificador=?,descripcion=?, nombre=?, tipo=? WHERE id=? ";
+
+        $comando=$this->conexion->prepare($sql);
+        $comando->bind_param("isssi",$identificador, $descripcion, $nombre, $tipo,$id);
+        $comando->execute();
+        return $comando->get_result();
     }
 
     public function cerrarConexion(){

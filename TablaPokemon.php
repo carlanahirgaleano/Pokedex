@@ -12,6 +12,7 @@ if (isset($_POST['Baja'])) {
 foreach ($resultado as $pokemon){
     $identificador = $pokemon['identificador'];
     $nombre = $pokemon['nombre'];
+    $id=$pokemon['id'];
     include("vistas/EstadoDelMenu.php");
 }
 echo "</table>";
