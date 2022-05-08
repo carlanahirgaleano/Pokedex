@@ -26,9 +26,10 @@
 
     <?php
     if(isset($_SESSION['usuario'])){
-        echo "<button type='submit' name='enviar'>Agregar nuevo pokemon</button>";
+        echo "<a href='./vistas/VistaCrearPokemon.php'>Crear un pokemon</a>";
     }
     ?>
+
 </header>
 <h2>Pokemones</h2>
 <table class='w3-table'>
