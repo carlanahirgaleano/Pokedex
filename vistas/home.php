@@ -33,7 +33,10 @@
     }
     ?>
 
-  
+    
+
+
+
 </header>
 <h2 class="text-light text-center">Pokemones</h2>
 
@@ -70,7 +73,7 @@
   </div>
   <?php
     if(isset($_SESSION['usuario'])){
-        echo "<button type='submit'  class='btn btn-success d-flex m-auto mt-2 mb-3 ' name='enviar'>Agregar nuevo pokemon</button>";
+        echo "<a href='./vistas/VistaCrearPokemon.php' class='btn btn-success d-flex w-25 m-auto mt-4 mb-3 ' name='enviar'>Agregar nuevo pokemon</a>";
     }
     ?>
 
