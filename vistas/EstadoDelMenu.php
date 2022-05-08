@@ -6,8 +6,8 @@ if(isset($_SESSION['usuario'])){
                 <td><a href='DetallePokemon.php/?param=$nombre' > " . $nombre . "</a></td>
                 <td><img width='80px' src='" . $pokemon['imagenTipo'] . "'></td>
                 <td> <img width='65px'  src='" . $pokemon['imagen'] . "'> </td>
-                <form action='' method='POST' enctype='text/plaine'>
-                <td> <button type='submit' class='button btn btn-warning text-light' name='enviar'>Modificacion</button> 
+                <form action='ModificarPokemon.php' enctype='text/plaine'>
+                <td> <button type='submit' class='button btn btn-warning text-light' name='Modificar' value='$id'>Modificacion</button> 
                 <button type='submit' class='button btn btn-danger mt-2  mt-sm-0  ' name='Baja' value='$identificador'>Baja</button>
                 </td>
               
