@@ -17,7 +17,7 @@ if($resultado->num_rows == 1){
 }else {
     //No existe el usuario
     $conexionDB->cerrarConexion();
-    $_SESSION['error'] = "¡Nombre de usuario y/o password incorrecto!";
+    $_SESSION['error'] = "<div class='text-light mt-3 ml-2'>¡Nombre de usuario y/o password incorrecto!</div>";
     header('location: ../index.php');
 }
 

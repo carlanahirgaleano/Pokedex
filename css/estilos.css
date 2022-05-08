@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    }
+    h2{
+    font-size: 3em;
+    font-weight: bolder;
+    }
+.buscador{
+width:355px;
+
+}    
+.tablaPokemon{
+width: 80vw;
+
+}
+@media screen and (min-width:991px){
+
+.logo-responsive img{
+width: 300px;
+}
+.formularioDesktop input{
+width: 150px;
+
+}
+}
