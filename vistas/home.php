@@ -26,7 +26,7 @@
 
     <?php
     if(isset($_SESSION['usuario'])){
-        echo "<a href='./vistas/VistaCrearPokemon.php'>Crear un pokemon</a>";
+        echo "<a href='./vistas/VistaCrearPokemon.php'>Crear nuevo pokemon</a>";
     }
     ?>
 

@@ -45,6 +45,8 @@
     <input type="submit" value="Guardar Pokemon">
 </form>
 
+<a href="../index.php">Atrás</a>
+
 </body>
 </html>
 

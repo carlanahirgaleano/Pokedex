@@ -28,10 +28,11 @@ class ConexionDatabase{
 
     public function buscarUnPokemon($input)
     {
-        $sql = "SELECT p.identificador, p.nombre, tp.imagenTipo, p.imagen, p.descripcion FROM Pokemon p JOIN tipo_pokemon tp ON p.tipo=tp.id WHERE p.nombre = ? OR p.tipo= ? OR p.identificador = ?";
+        $sql = "SELECT p.identificador, p.nombre, tp.imagenTipo, p.imagen, p.descripcion FROM Pokemon p JOIN tipo_pokemon tp ON p.tipo=tp.id WHERE p.nombre = ? OR tp.descripcion= ? OR p.identificador = ?";
         $comando = $this->conexion->prepare($sql);
         $comando->bind_param("ssi", $input , $input , $input);
         $comando->execute();
+
         return $comando->get_result();
     }
 
@@ -71,6 +72,17 @@ class ConexionDatabase{
         return $nuevoPokemon;
     }
 
+    public function existePokemon($identificador, $nombre){
+        $existePokemon=false;
+        $pokemonesExistentes = $this->devolverTodosLosPokemones();
+        foreach ($pokemonesExistentes as $pokemon) {
+            if ($pokemon["identificador"] == $identificador || strtolower($pokemon["nombre"]) == $nombre) {
+                $existePokemon = true;
+                break;
+            }
+        }
+        return $existePokemon;
+    }
 
     public function cerrarConexion(){
         return $this->conexion->close();
