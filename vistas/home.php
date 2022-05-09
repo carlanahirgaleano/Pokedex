@@ -18,10 +18,9 @@
     session_start();
     if(isset($_SESSION['usuario'])){
         echo"
-        <div class='container'></div>
+        <div class='container' ></div>
         <div class='container mb-5 mt-5 d-flex flex-nowrap justify-content-end'>
         <p class='text-light'>Usuario " . ($_SESSION['usuario']) ."</p>
-      
         <a class='btn btn-danger ml-2'href='sesiones/logoutSesion.php'>Cerrar sesión</a>
   
              </div>
@@ -64,16 +63,26 @@
     <form action='BuscarPokemon.php' method='POST' enctype='text/plaine'>
       <input class="form-control buscador ml-auto " type="search" id='pokemon'
                name='pokemon' placeholder="Ingrese nombre, tipo o numero de Pokemon" aria-label="Search">
-               <button class="btn btn-outline-danger bg-danger text-light botonBuscar " type="submit">Buscar</button>
+               <button class="btn btn-outline-danger bg-danger text-light botonBuscar" type="submit">Buscar</button>
     
      
                
     </form>
-    
+
   </div>
+    <?php
+    if(isset($_SESSION['errorBusqueda'])) {
+        echo $_SESSION['errorBusqueda'] . "<br>";
+        unset($_SESSION['errorBusqueda']);
+    }
+    ?>
   <?php
     if(isset($_SESSION['usuario'])){
-        echo "<a href='./vistas/VistaCrearPokemon.php' class='btn btn-success d-flex w-25 m-auto mt-4 mb-3 ' name='enviar'>Agregar nuevo pokemon</a>";
+        echo "
+        <div class='container'>
+        <a href='vistas/VistaCrearPokemon.php' class='btn btn-success d-block w-25  m-auto mt-4 mb-3 ' name='enviar'>Agregar nuevo pokemon</a>
+        </div>
+        ";
     }
     ?>
 

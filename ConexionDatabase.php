@@ -22,15 +22,17 @@ class ConexionDatabase{
 
     public function devolverTodosLosPokemones()
     {
-        $sql = "SELECT p.identificador, p.nombre, tp.imagenTipo, p.imagen FROM Pokemon p JOIN tipo_pokemon tp ON p.tipo=tp.id ORDER BY identificador";
+        $sql = "SELECT p.id, p.identificador, p.nombre, tp.imagenTipo, p.imagen FROM Pokemon p JOIN tipo_pokemon tp ON p.tipo=tp.id ORDER BY identificador";
         return $this->ejecutaQuery($sql);
     }
 
     public function buscarUnPokemon($input)
     {
-        $sql = "SELECT p.identificador, p.nombre, tp.imagenTipo, p.imagen, p.descripcion FROM Pokemon p JOIN tipo_pokemon tp ON p.tipo=tp.id WHERE p.nombre = ? OR tp.descripcion= ? OR p.identificador = ?";
+        $sql = "SELECT p.id, p.tipo, p.identificador, p.nombre, tp.imagenTipo, p.imagen, p.descripcion FROM Pokemon 
+        p JOIN tipo_pokemon tp ON p.tipo=tp.id 
+        WHERE p.nombre = ? OR tp.descripcion= ? OR p.identificador = ? or p.id = ?";
         $comando = $this->conexion->prepare($sql);
-        $comando->bind_param("ssi", $input , $input , $input);
+        $comando->bind_param("ssii", $input , $input , $input, $input);
         $comando->execute();
 
         return $comando->get_result();
@@ -64,7 +66,7 @@ class ConexionDatabase{
         $query = "INSERT INTO pokemon (identificador, nombre, imagen, tipo, descripcion) VALUES (?,?,?,?,?)";
 
         $consulta = $this->conexion->prepare($query);
-        $consulta->bind_param("issss",$identificador, $nombre, $imagen, $tipo, $descripcion);
+        $consulta->bind_param("issis",$identificador, $nombre, $imagen, $tipo, $descripcion);
         $consulta->execute();
 
 //        echo $consulta->affected_rows;
@@ -82,6 +84,24 @@ class ConexionDatabase{
             }
         }
         return $existePokemon;
+    }
+
+    public function editarPokemon($pokemon, $idPokemon){
+        $identificador = $pokemon->getIdentificador();
+        $nombre = $pokemon->getNombre();
+        $imagen = $pokemon->getImagen();
+        $tipo = $pokemon->getTipo();
+        $descripcion = $pokemon->getDescripcion();
+
+        $query ="UPDATE Pokemon SET identificador=?, nombre= ?, descripcion= ?, imagen= ?, tipo= ? WHERE id = ?";
+
+        $consulta = $this->conexion->prepare($query);
+        $consulta->bind_param("isssii",$identificador, $nombre,$descripcion,$imagen,$tipo, $idPokemon);
+        $consulta->execute();
+        $consulta->get_result();
+
+        return $pokemon;
+
     }
 
     public function cerrarConexion(){

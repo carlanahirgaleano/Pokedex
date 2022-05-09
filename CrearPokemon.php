@@ -14,8 +14,8 @@
 <body class="bg-dark">
 <?php
 
-include_once ("Pokemon.php");
-include_once ("ConexionDatabase.php");
+include_once("Pokemon.php");
+include_once("ConexionDatabase.php");
 
 $conexionDB = new ConexionDatabase();
 
@@ -33,7 +33,7 @@ if ($existePokemon) {
 else{
     //Muevo la imagen cargada a directorio img
     $rutaArchivoTemporal = $_FILES["imagen"]["tmp_name"];
-    $rutaArchivoFinal = "img/" . $_FILES["imagen"]["name"];
+    $rutaArchivoFinal = $imagen;
 
     move_uploaded_file($rutaArchivoTemporal, $rutaArchivoFinal);
 
