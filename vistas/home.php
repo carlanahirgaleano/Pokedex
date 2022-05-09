@@ -72,13 +72,17 @@
   </div>
     <?php
     if(isset($_SESSION['errorBusqueda'])) {
-        echo $_SESSION['errorBusqueda'];
+        echo $_SESSION['errorBusqueda'] . "<br>";
         unset($_SESSION['errorBusqueda']);
     }
     ?>
   <?php
     if(isset($_SESSION['usuario'])){
-        echo "<a href='./vistas/VistaCrearPokemon.php' class='btn btn-success d-flex w-25 m-auto mt-4 mb-3 ' name='enviar'>Agregar nuevo pokemon</a>";
+        echo "
+        <div class='container'>
+        <a href='vistas/VistaCrearPokemon.php' class='btn btn-success d-block w-25  m-auto mt-4 mb-3 ' name='enviar'>Agregar nuevo pokemon</a>
+        </div>
+        ";
     }
     ?>
 
