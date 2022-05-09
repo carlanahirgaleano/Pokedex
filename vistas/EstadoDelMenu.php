@@ -2,8 +2,8 @@
 if(isset($_SESSION['usuario'])){
     // Si la sesion esta activa entonces
     echo "<tr>
-                <td><a href='DetallePokemon.php/?param=$identificador' > " . $identificador . "</a></td>
-                <td><a href='DetallePokemon.php/?param=$nombre' > " . $nombre . "</a></td>
+                <td><a href='DetallePokemon.php/?param=$identificador' style='text-decoration: none'> " . $identificador . "</a></td>
+                <td><a href='DetallePokemon.php/?param=$nombre' style='text-decoration: none'> " . $nombre . "</a></td>
                 <td><img width='80px' src='" . $pokemon['imagenTipo'] . "'></td>
                 <td> <img width='65px'  src='" . $pokemon['imagen'] . "'> </td>
                 <form action='' method='POST' enctype='text/plaine'>
@@ -16,8 +16,8 @@ if(isset($_SESSION['usuario'])){
 }else {
     // Si la sesion esta inactiva entonces
     echo "<tr>
-                <td><a href='DetallePokemon.php/?param=$identificador' > " . $identificador . "</a></td>
-                <td><a href='DetallePokemon.php/?param=$nombre' > " . $nombre . "</a></td>
+                <td><a href='DetallePokemon.php/?param=$identificador' style='text-decoration: none'> " . $identificador . "</a></td>
+                <td><a href='DetallePokemon.php/?param=$nombre' style='text-decoration: none'> " . $nombre . "</a></td>
                 <td><img width='80px' src='" . $pokemon['imagenTipo'] . "'></td>
                 <td> <img width='65px'  src='" . $pokemon['imagen'] . "'> </td>
           </tr>";
