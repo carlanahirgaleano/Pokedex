@@ -75,5 +75,5 @@ echo "<!doctype html>
 </form>
     </div>
 </body>
-<a href='/index.php' class='btn btn-secondary ms-4 p-2 ps-5 pe-5 mt-3 mb-3 mx-auto'>Volver a Home</a>
+<a href='index.php' class='btn btn-secondary ms-4 p-2 ps-5 pe-5 mt-3 mb-3 mx-auto'>Volver a Home</a>
 </html>";
