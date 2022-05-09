@@ -1,7 +1,5 @@
 <html>
-<div>
-    Detalle de Pokemon
-</div>
+
 <?php
 include_once ('sesiones/SesionUsuario.php');
 include_once('ConexionDatabase.php');
