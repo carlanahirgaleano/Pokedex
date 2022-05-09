@@ -26,3 +26,26 @@ width: 150px;
 
 }
 }
+
+@media screen and (max-width:991px){
+    input[type="text"],input[type="number"] {
+        width: 10%;
+    }
+    .input-radio {
+        flex-wrap: wrap;
+    }
+    .form-responsive{
+        width: 100%;
+    }
+    .carga-archivo{
+        flex-direction: column;
+    }
+    .guardar-pok{
+        /*width: 150px;*/
+        text-align: center;
+        padding: 5px 2px;
+        margin: 0 5px;
+        font-size: 16px;
+        display: block;
+    }
+}

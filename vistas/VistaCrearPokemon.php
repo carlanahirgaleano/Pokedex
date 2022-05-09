@@ -15,11 +15,11 @@
 
 <h1 class="text-center pt-4 text-white">Creá un nuevo Pokémon<img src="../img/pokeball.png" alt="pokeball" style="width: 5%" class="ms-4"></h1>
 
-<div class="card w-50 m-auto pt-4 mt-4">
+<div class="card w-50 m-auto pt-4 mt-4 form-responsive">
     <form action="../CrearPokemon.php" method="post" enctype="multipart/form-data" >
         <p class="text-center ms-3 me-3">Completá las características que va a tener el nuevo Pokémon. Luego, guardá los cambios para incluirlo en la Primera Generación.</p>
 
-        <div class="card-body w-75 m-auto">
+        <div class="card-body w-75 m-auto form-responsive">
             <label for="nro" class="pe-5">Número </label>
             <input type="number" name="identificador" id="nro" class="w-75" required>
             <br>
@@ -29,25 +29,35 @@
             <br>
             <br>
             <p class="pt-2">Seleccionar el tipo:</p>
-            <input type="radio" name="tipo" id="tipo" value="1" required>
-            <label for="tipo" class="ms-2 me-5">Veneno</label>
-            <input type="radio" name="tipo" id="tipo" value="2" required>
-            <label for="tipo" class="ms-2 me-5">Agua</label>
-            <input type="radio" name="tipo" id="tipo" value="3" required>
-            <label for="tipo" class="ms-2 me-5">Planta</label>
-            <input type="radio" name="tipo" id="tipo" value="4" required>
-            <label for="tipo" class="ms-2 me-5">Eléctrico</label>
-            <br>
+            <div class="input-radio d-flex">
+                <div>
+                    <input type="radio" name="tipo" id="tipo" value="1" required>
+                    <label for="tipo" class="ms-2 me-5">Veneno</label>
+                </div>
+                <div>
+                    <input type="radio" name="tipo" id="tipo" value="2" required>
+                    <label for="tipo" class="ms-2 me-5">Agua</label>
+                </div>
+                <div>
+                    <input type="radio" name="tipo" id="tipo" value="3" required>
+                    <label for="tipo" class="ms-2 me-5">Planta</label>
+                </div>
+                <div>
+                    <input type="radio" name="tipo" id="tipo" value="4" required>
+                    <label for="tipo" class="ms-2 me-5">Eléctrico</label>
+                </div>
+            </div>
             <br>
             <label for="desc" class="pe-4 pt-2">Descripción</label>
             <input type="text" name="descripcion" id="desc" class="w-75 mt-2" required>
             <br>
             <br>
-            <div class="d-flex w-100">
-            <label for="img" class="pt-2 pe-4">Cargar imagen del Pokémon</label>
-            <input type="file" name="imagen" id="img" class="pt-2 pb-2" required></div>
+            <div class="d-flex w-100 carga-archivo">
+                <label for="img" class="pt-2 pe-4">Cargar imagen del Pokémon</label>
+                <input type="file" name="imagen" id="img" class="pt-2 pb-2" required>
+            </div>
 
-            <input type="submit" value="Guardar Pokemon" class='btn btn-success mt-4 mb-3 m-auto d-flex pe-5 ps-5'>
+            <input type="submit" value="Guardar Pokemon" class='btn btn-success mt-4 mb-3 m-auto d-flex pe-5 ps-5 guardar-pok'>
 
         </div>
     </form>
@@ -56,4 +66,3 @@
 
 </body>
 </html>
-
