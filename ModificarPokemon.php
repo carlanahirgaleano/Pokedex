@@ -50,7 +50,7 @@ echo "<!doctype html>
     <br>
     <br>
     <label for='nombre' class='pe-5' >Nombre</label>
-    <input type='text' name='nombre' id='nombre'  class='w-75' required>
+    <input type='text' name='nombre' id='nombre' value='$nombre'  class='w-75' required>
     <br>
     <br>
     <p class='pt-2'>Seleccionar el tipo</p>
@@ -62,7 +62,7 @@ echo "<!doctype html>
     </select><br>
     <br>
     <label for='desc' class='pe-4 pt-2'>Descripción</label>
-    <input type='text' name='descripcion' id='desc' class='w-75 mt-2' required>
+    <input type='text' name='descripcion' id='desc' value='$descripcion' class='w-75 mt-2' required>
     <br>
     <br>
         <div class='d-flex w-100'>
@@ -75,5 +75,5 @@ echo "<!doctype html>
 </form>
     </div>
 </body>
-<a href='../index.php' class='btn btn-secondary ms-4 p-2 ps-5 pe-5 mt-3 mb-3 mx-auto'>Volver a Home</a>
+<a href='/index.php' class='btn btn-secondary ms-4 p-2 ps-5 pe-5 mt-3 mb-3 mx-auto'>Volver a Home</a>
 </html>";
