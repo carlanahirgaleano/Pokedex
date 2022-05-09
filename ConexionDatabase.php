@@ -69,6 +69,8 @@ class ConexionDatabase{
         $consulta->bind_param("issis",$identificador, $nombre, $imagen, $tipo, $descripcion);
         $consulta->execute();
 
+//        echo $consulta->affected_rows;
+
         return $nuevoPokemon;
     }
 
