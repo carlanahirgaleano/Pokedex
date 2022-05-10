@@ -32,19 +32,27 @@
             <div class="input-radio d-flex">
                 <div>
                     <input type="radio" name="tipo" id="tipo" value="1" required>
-                    <label for="tipo" class="ms-2 me-5">Veneno</label>
+                    <label for="tipo" class="ms-2 me-3">Veneno</label>
                 </div>
                 <div>
                     <input type="radio" name="tipo" id="tipo" value="2" required>
-                    <label for="tipo" class="ms-2 me-5">Agua</label>
+                    <label for="tipo" class="ms-2 me-3">Agua</label>
                 </div>
                 <div>
                     <input type="radio" name="tipo" id="tipo" value="3" required>
-                    <label for="tipo" class="ms-2 me-5">Planta</label>
+                    <label for="tipo" class="ms-2 me-3">Planta</label>
                 </div>
                 <div>
                     <input type="radio" name="tipo" id="tipo" value="4" required>
-                    <label for="tipo" class="ms-2 me-5">Eléctrico</label>
+                    <label for="tipo" class="ms-2 me-3">Eléctrico</label>
+                </div>
+                <div>
+                    <input type="radio" name="tipo" id="tipo" value="5" required>
+                    <label for="tipo" class="ms-2 me-3">Fuego</label>
+                </div>
+                <div>
+                    <input type="radio" name="tipo" id="tipo" value="6" required>
+                    <label for="tipo" class="ms-2 me-3">Hada</label>
                 </div>
             </div>
             <br>
